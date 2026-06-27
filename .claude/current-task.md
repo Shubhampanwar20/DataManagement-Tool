@@ -1,7 +1,28 @@
-Current Task
+# Current Task
 
-Build only Phase 1.
+Build Phase 2.
 
-Nothing else.
+Implement Client Master only.
 
-Stop after Phase 1 is complete.
+Requirements:
+
+- Create Client
+- Edit Client
+- Delete Client
+- Search Client
+- Industry
+- Sector
+- Client Code
+- GST
+- PAN
+- CIN (optional)
+- Registered Address
+- Plant Locations
+- Financial Year
+- Audit Type
+- Team Members
+- Status
+
+Store everything in Dexie.
+
+Stop after Phase 2.
