@@ -1,5 +1,5 @@
 import Dexie, { type Table } from 'dexie'
-import type { ClientRecord, DataRequestRecord, DocumentRecord, EngagementRecord, EmailTemplateRecord, ImportMappingRecord, ObservationRecord, ObservationTemplateRecord, SampleRecord, WorkingPaperRecord, ChecklistRecord } from './types'
+import type { ClientRecord, DataRequestRecord, DocumentRecord, EngagementRecord, EmailTemplateRecord, ImportMappingRecord, ImportSessionRecord, ImportedRowRecord, ObservationRecord, ObservationTemplateRecord, SampleRecord, WorkingPaperRecord, ChecklistRecord } from './types'
 
 export class AuditOSDatabase extends Dexie {
   clients!: Table<ClientRecord>
@@ -13,10 +13,12 @@ export class AuditOSDatabase extends Dexie {
   emailTemplates!: Table<EmailTemplateRecord>
   observationTemplates!: Table<ObservationTemplateRecord>
   importMappings!: Table<ImportMappingRecord>
+  importSessions!: Table<ImportSessionRecord>
+  importedRows!: Table<ImportedRowRecord>
 
   constructor() {
     super('AuditOSDatabase')
-    this.version(1).stores({
+    this.version(2).stores({
       clients: 'id, name, status, industry, sector, createdAt, updatedAt',
       engagements: 'id, clientId, status, financialYear, startDate, endDate, createdAt, updatedAt',
       dataRequests: 'id, engagementId, status, priority, raisedDate, requiredDate, createdAt, updatedAt',
@@ -28,6 +30,8 @@ export class AuditOSDatabase extends Dexie {
       emailTemplates: 'id, type, isDefault, createdAt, updatedAt',
       observationTemplates: 'id, category, createdAt, updatedAt',
       importMappings: 'id, clientId, sourceFormat, isDefault, lastUsed, createdAt, updatedAt',
+      importSessions: 'id, fileName, sourceType, sheetCount, totalRows, totalColumns, createdAt, updatedAt',
+      importedRows: 'id, importSessionId, sheetName, rowIndex, isHeader, isBlank, createdAt, updatedAt',
     })
   }
 }

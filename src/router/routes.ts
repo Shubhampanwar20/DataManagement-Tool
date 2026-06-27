@@ -11,6 +11,7 @@ import {
   ScrollText,
   Settings,
   ShieldCheck,
+  Upload,
   Users,
 } from 'lucide-react'
 import DashboardPage from '../features/dashboard'
@@ -23,6 +24,7 @@ import ChecklistsPage from '../features/checklists'
 import ReportsPage from '../features/reports'
 import DocumentsPage from '../features/document-vault'
 import SettingsPage from '../features/settings'
+import ExcelImportPage from '../features/excel-import'
 import NotFoundPage from '../features/workspace/NotFoundPage'
 
 export interface AppRouteDefinition {
@@ -95,6 +97,13 @@ export const appRoutes: AppRouteDefinition[] = [
     description: 'Central document repository',
     element: DocumentsPage,
     icon: FolderKanban,
+  },
+  {
+    path: '/upload-excel',
+    title: 'Upload Excel',
+    description: 'Upload client trackers and inspect workbook structure',
+    element: ExcelImportPage,
+    icon: Upload,
   },
   {
     path: '/settings',

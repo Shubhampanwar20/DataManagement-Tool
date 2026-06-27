@@ -129,3 +129,40 @@ export interface ImportMappingRecord extends BaseRecord {
   lastUsed?: string
   isDefault: boolean
 }
+
+export interface ProcessSummaryEntry {
+  process: string
+  totalItems: number
+  received: number
+  pending: number
+  partiallyReceived: number
+  remarks: string
+}
+
+export interface ImportSessionRecord extends BaseRecord {
+  fileName: string
+  sourceType: 'xlsx' | 'xls'
+  sheetCount: number
+  totalRows: number
+  totalColumns: number
+  clientName?: string
+  auditDate?: string
+  workbookData?: string
+  processSummary?: ProcessSummaryEntry[]
+  sheets: Array<{
+    name: string
+    rowCount: number
+    columnCount: number
+    headerRowIndex: number
+    header: string[]
+  }>
+}
+
+export interface ImportedRowRecord extends BaseRecord {
+  importSessionId: string
+  sheetName: string
+  rowIndex: number
+  values: string[]
+  isHeader: boolean
+  isBlank: boolean
+}
