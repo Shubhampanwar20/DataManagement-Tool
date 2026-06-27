@@ -11,20 +11,19 @@ import {
   ScrollText,
   Settings,
   ShieldCheck,
-  SquaresFour,
   Users,
 } from 'lucide-react'
-import DashboardPage from '../pages/Dashboard'
-import ClientsPage from '../pages/Clients'
-import EngagementsPage from '../pages/Engagements'
-import DataTrackerPage from '../pages/DataTracker'
-import SampleTrackerPage from '../pages/SampleTracker'
-import ObservationsPage from '../pages/Observations'
-import ChecklistsPage from '../pages/Checklists'
-import ReportsPage from '../pages/Reports'
-import DocumentsPage from '../pages/Documents'
-import SettingsPage from '../pages/Settings'
-import NotFoundPage from '../pages/NotFound'
+import DashboardPage from '../features/dashboard'
+import ClientsPage from '../features/clients'
+import EngagementsPage from '../features/engagements'
+import DataTrackerPage from '../features/data-tracker'
+import SampleTrackerPage from '../features/samples'
+import ObservationsPage from '../features/observations'
+import ChecklistsPage from '../features/checklists'
+import ReportsPage from '../features/reports'
+import DocumentsPage from '../features/document-vault'
+import SettingsPage from '../features/settings'
+import NotFoundPage from '../features/workspace/NotFoundPage'
 
 export interface AppRouteDefinition {
   path: string
@@ -40,7 +39,6 @@ export const appRoutes: AppRouteDefinition[] = [
     title: 'Dashboard',
     description: 'Executive overview and live summaries',
     element: DashboardPage,
-    icon: SquaresFour,
   },
   {
     path: '/clients',
