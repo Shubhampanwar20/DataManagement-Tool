@@ -38,9 +38,24 @@ export interface AppRouteDefinition {
 export const appRoutes: AppRouteDefinition[] = [
   {
     path: '/',
+    title: 'Import Excel',
+    description: 'Upload client trackers and inspect workbook structure',
+    element: ExcelImportPage,
+    icon: Upload,
+  },
+  {
+    path: '/import',
+    title: 'Import Excel',
+    description: 'Upload client trackers and inspect workbook structure',
+    element: ExcelImportPage,
+    icon: Upload,
+  },
+  {
+    path: '/dashboard',
     title: 'Dashboard',
     description: 'Executive overview and live summaries',
     element: DashboardPage,
+    icon: BarChart3,
   },
   {
     path: '/clients',
@@ -97,13 +112,6 @@ export const appRoutes: AppRouteDefinition[] = [
     description: 'Central document repository',
     element: DocumentsPage,
     icon: FolderKanban,
-  },
-  {
-    path: '/upload-excel',
-    title: 'Upload Excel',
-    description: 'Upload client trackers and inspect workbook structure',
-    element: ExcelImportPage,
-    icon: Upload,
   },
   {
     path: '/settings',
